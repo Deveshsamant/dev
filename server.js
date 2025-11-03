@@ -7,11 +7,33 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Allow localhost and vercel.app domains
+    if (origin.indexOf('localhost') !== -1 || origin.indexOf('vercel.app') !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors(corsOptions));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Serve static files from the React app build directory
 app.use(express.static(path.join(__dirname, 'build')));
-app.use('/installers', express.static(path.join(__dirname, 'installers')));
+
+// Serve public directory (including installers)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Create transporter for Gmail
 const transporter = createTransport({
@@ -31,7 +53,7 @@ transporter.verify((error, success) => {
   }
 });
 
-// Email sending endpoint
+// Email sending endpoint with enhanced error handling
 app.post('/api/send-email', async (req, res) => {
   try {
     const { firstName, lastName, email, subject, message } = req.body;
@@ -130,9 +152,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Start server only when not in Vercel environment
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
 
 module.exports = app;

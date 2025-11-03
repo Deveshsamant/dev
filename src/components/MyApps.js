@@ -13,7 +13,7 @@ const MyApps = () => {
       version: '1.0.0',
       size: '14.7 MB',
       type: 'APK',
-      downloadLink: '/installers/app installer/DocKeep.apk',
+      downloadLink: '/installers/app%20installer/DocKeep.apk',
       image: '/images/DocKeep.png',
       features: ['Document Storage', 'Material Design', 'Dark/Light Themes', 'Local Storage'],
       stats: [
@@ -31,7 +31,7 @@ const MyApps = () => {
       version: '1.0.0',
       size: '34.6 MB',
       type: 'EXE',
-      downloadLink: '/installers/windows installer/FileOrganizer.exe',
+      downloadLink: '/installers/windows%20installer/FileOrganizer.exe',
       image: '/images/FileOrganizer.png',
       features: ['File Management', 'Advanced Sorting', 'File Browsing', 'Windows Integration'],
       stats: [
@@ -46,7 +46,7 @@ const MyApps = () => {
       version: '1.0.0',
       size: '72.5 MB',
       type: 'EXE',
-      downloadLink: '/installers/windows installer/Project To-Do Manager Setup 1.0.0.exe',
+      downloadLink: '/installers/windows%20installer/Project%20To-Do%20Manager%20Setup%201.0.0.exe',
       image: '/images/Project-To-Do-Manager.png',
       features: ['Task Management', 'Drag & Drop', 'Project Organization', 'Dark/Light Themes'],
       stats: [
