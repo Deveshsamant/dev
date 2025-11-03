@@ -80,7 +80,8 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('http://localhost:3001/api/send-email', {
+      // Use relative path for API endpoint to work with both localhost and Vercel
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

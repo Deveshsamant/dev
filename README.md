@@ -33,8 +33,10 @@ To generate a Gmail app password:
 3. Navigate to Security > 2-Step Verification > App passwords
 4. Generate a new app password for "Mail"
 
-### Vercel Configuration
-Vercel will automatically detect this as a Create React App project and deploy it with the default settings. No additional configuration file is needed.
+### Vercel API Routes
+This project uses Vercel's automatic API routes:
+- The contact form API is located at `api/send-email/index.js`
+- Vercel automatically serves this at `/api/send-email`
 
 ## 🛠️ Development
 
@@ -76,6 +78,9 @@ Runs only the Express backend server.
 │   ├── App.js
 │   ├── App.css
 │   └── index.js
+├── api/
+│   └── send-email/
+│       └── index.js
 ├── server.js
 ├── package.json
 └── README.md
