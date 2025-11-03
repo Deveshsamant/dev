@@ -1,0 +1,26 @@
+{
+  "short_name": "Devesh Portfolio",
+  "name": "Devesh Samant Portfolio",
+  "icons": [
+    {
+      "src": "images/myphoto.jpg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/myphoto.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/myphoto.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#00d4ff",
+  "background_color": "#0a0a0f",
+  "description": "Devesh Samant - Space Explorer & Code Warrior Portfolio"
+}
